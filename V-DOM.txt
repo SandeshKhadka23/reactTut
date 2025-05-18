@@ -1,0 +1,92 @@
+1. What is the Virtual DOM?
+🔹 Real DOM vs Virtual DOM:
+Real DOM (Document Object Model) is the actual structure of a webpage that the browser uses to render content.
+
+Virtual DOM (V-DOM) is a lightweight JavaScript copy of the real DOM.
+
+🔹 Why Virtual DOM?
+Updating the real DOM is slow because:
+
+Every small change (like a button click) causes the entire real DOM to re-render.
+
+This slows down performance.
+
+🔹 How Virtual DOM Helps:
+React creates a virtual DOM in memory.
+
+When your UI changes, React:
+
+Creates a new virtual DOM.
+
+Compares it with the old virtual DOM (using a process called Diffing).
+
+Finds out what exactly changed.
+
+Updates only that part in the real DOM (instead of reloading the whole thing).
+
+✅ Result: Faster performance and better user experience.
+
+2. What is Reconciliation in React?
+🔹 Reconciliation = Comparing + Updating
+It is the process React uses to update the DOM.
+
+When state or props change, React:
+
+Creates a new virtual DOM tree.
+
+Compares it with the previous tree.
+
+Calculates the difference.
+
+Efficiently updates only the changed parts of the real DOM.
+
+🔹 How React compares:
+It assumes:
+
+Two elements of different types (e.g., <div> and <p>) are completely different.
+
+It will destroy the old and create a new one.
+
+Keys help with efficient comparison (especially in lists).
+
+3. What is React Fiber?
+🔹 React Fiber is the new engine (since React 16) for rendering.
+Think of it as the brain behind virtual DOM and reconciliation.
+
+🔹 Why Fiber was introduced?
+Old React couldn’t pause or prioritize tasks. Everything was done at once → caused janky UIs.
+
+Fiber solved this by introducing:
+
+Incremental rendering (can pause work and come back to it).
+
+Prioritization (more important updates first).
+
+Better error handling.
+
+Concurrency support (used in React’s concurrent mode).
+
+🔹 Key Concepts of Fiber:
+Fiber Node: Each React element has a corresponding Fiber node (a JS object with information about the component).
+
+Work Units: React splits rendering into chunks (units of work).
+
+Time-slicing: Allows React to do some work, take a break, and continue → keeps the app responsive.
+
+🔄 Summary Table
+Concept:	Explanation
+Virtual DOM	:A lightweight JS representation of the real DOM
+Reconciliation	:The diffing and updating process React uses to sync changes
+Fiber:	The new React engine that improves rendering, makes it faster and smarter
+
+🌟 Real Life Analogy:
+Imagine the real DOM is your full school project printed on paper.
+
+Virtual DOM is your editable digital copy on your laptop.
+
+You only print (update) the changed parts, not the entire document.
+
+Reconciliation is you comparing old vs new versions.
+
+Fiber is like your brain deciding which task to do first (title page? conclusion? charts?), and doing them in small chunks.
+
